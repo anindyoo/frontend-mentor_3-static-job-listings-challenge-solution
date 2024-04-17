@@ -1,25 +1,34 @@
 export default function JobCard(props) {
-  const { data } = props;
+  const { 
+    data,
+    filterCategory,
+  } = props;
 
   const filterTabletStlye = `
     rounded-sm bg-lightGrayishCyanFilterTablets
     px-2 pt-[0.625rem] pb-[0.375rem]
-    font-bold text-[0.984rem]/[1em] text-desaturatedDarkCyan
-  `;
+    font-bold text-[0.984rem]/[1em] text-desaturatedDarkCyan`;
 
   const replaceWhitespace = (str) => str.replace(/\s+/g, '-').toLowerCase();
-
   const keyTemplate = replaceWhitespace(data.company) + '-' + replaceWhitespace(data.position) + '-';
+
+  const getButtonAttribute = (event, attr) => event.currentTarget.getAttribute(attr);
+  const categoryFilterClickHandler = (e) => {
+    const name = getButtonAttribute(e, 'data-name')
+    const value = getButtonAttribute(e, 'data-' + name);
+
+    filterCategory(name, value);
+  };
 
   return (
     <div
       className={`
         JOB-CARD
         flex flex-row
-        max-h-[9.5rem]
+        w-full h-auto max-h-[9.5rem]
         border-l-[0.313rem] rounded-md
         pl-[2.188rem] pr-10 py-8
-        w-full h-auto bg-white
+        drop-shadow-lg-cyan bg-white
         xl:min-w-[69.375rem] xl:max-w-[69.375rem] 
         ${
           data.featured ? `border-l-desaturatedDarkCyan` : `border-l-white`
@@ -77,25 +86,33 @@ export default function JobCard(props) {
         <button
           key={keyTemplate + data.role} 
           className={filterTabletStlye}
-          onClick={''}
+          data-name="role"
+          data-role={data.role}
+          onClick={categoryFilterClickHandler}
         >{data.role}</button>        
         <button 
           key={keyTemplate + data.level} 
           className={filterTabletStlye}
-          onClick={''}
+          data-name="level"
+          data-level={data.level}
+          onClick={categoryFilterClickHandler}
         >{data.level}</button>                  
         {data.languages.map((lang, index) => (
           <button 
             key={keyTemplate + lang + '-' + index}
             className={filterTabletStlye}
-            onClick={''}
+            data-name="languages"
+            data-languages={lang}
+            onClick={categoryFilterClickHandler}
           >{lang}</button>
         ))}
         {data.tools.map((tool, index) => (
           <button 
             key={keyTemplate + tool + '-' + index}
             className={filterTabletStlye}
-            onClick={''}
+            data-name="tools"
+            data-tools={tool}
+            onClick={categoryFilterClickHandler}
           >{tool}</button>
         ))}
       </div>
