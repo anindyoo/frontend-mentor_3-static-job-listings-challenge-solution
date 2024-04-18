@@ -1,7 +1,7 @@
 export default function JobCard(props) {
   const { 
     data,
-    filterCategory,
+    addCategoryFilter,
   } = props;
 
   const filterTabletStlye = `
@@ -13,11 +13,11 @@ export default function JobCard(props) {
   const keyTemplate = replaceWhitespace(data.company) + '-' + replaceWhitespace(data.position) + '-';
 
   const getButtonAttribute = (event, attr) => event.currentTarget.getAttribute(attr);
-  const categoryFilterClickHandler = (e) => {
+  const addCategoryFilterClickHandler = (e) => {
     const name = getButtonAttribute(e, 'data-name')
     const value = getButtonAttribute(e, 'data-' + name);
 
-    filterCategory(name, value);
+    addCategoryFilter(name, value);
   };
 
   return (
@@ -88,14 +88,14 @@ export default function JobCard(props) {
           className={filterTabletStlye}
           data-name="role"
           data-role={data.role}
-          onClick={categoryFilterClickHandler}
+          onClick={addCategoryFilterClickHandler}
         >{data.role}</button>        
         <button 
           key={keyTemplate + data.level} 
           className={filterTabletStlye}
           data-name="level"
           data-level={data.level}
-          onClick={categoryFilterClickHandler}
+          onClick={addCategoryFilterClickHandler}
         >{data.level}</button>                  
         {data.languages.map((lang, index) => (
           <button 
@@ -103,7 +103,7 @@ export default function JobCard(props) {
             className={filterTabletStlye}
             data-name="languages"
             data-languages={lang}
-            onClick={categoryFilterClickHandler}
+            onClick={addCategoryFilterClickHandler}
           >{lang}</button>
         ))}
         {data.tools.map((tool, index) => (
@@ -112,7 +112,7 @@ export default function JobCard(props) {
             className={filterTabletStlye}
             data-name="tools"
             data-tools={tool}
-            onClick={categoryFilterClickHandler}
+            onClick={addCategoryFilterClickHandler}
           >{tool}</button>
         ))}
       </div>
