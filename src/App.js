@@ -79,38 +79,53 @@ function App() {
       w-screen bg-lightGrayishCyanBackground 
       text-darkGrayishCyan">
       <header className="
-        flex justify-center
-        h-[9.75rem] 
+        flex flex-col items-center
+        h-[9.75rem]
         px-12
         bg-[url('./assets/images/bg-header-desktop.svg')] bg-desaturatedDarkCyan"
       >
         {filteredCategoryList.some((cat) => cat) && (
           <div className="
-            animated animatedFadeIn fadeInUp    
-            flex flex-row flex-wrap items-center gap-4
-            h-[4.5rem] w-full rounded-[0.25rem]
-            drop-shadow-lg-cyan bg-white 
-            px-10 
-            mt-[7.5rem] 
-            z-10 absolute
-            xl:max-w-[69.375rem]"
-          >{filteredCategoryList.map((category, index) => (
-            category && <CategoryFilterButton
-              key={`category-filter-button-` + index}
-              categoryName={category[0]}
-              categoryValue={category[1]} 
-              removeCategoryFilter={removeCategoryFilter}
-            />
-          ))}
-            <span className="
-              flex grow justify-end
-              align-middle
-              font-semibold 
-              transition-all duration-150 ease-in
-              hover:underline hover:text-desaturatedDarkCyan"
+            CATEGORY-FILTER-BAR-WRAPPER
+            flex justify-center
+            w-full rounded-[0.25rem]
+            px-12
+            mt-[7.5rem]
+            z-10 absolute 
+          ">
+            <div className="
+              CATEGORY-FILTER-BAR
+              animated animatedFadeIn fadeInUp    
+              flex flex-row justify-between
+              w-full rounded-[0.25rem]
+              drop-shadow-lg-cyan bg-white 
+              px-10 py-5
+              xl:max-w-[69.375rem] lg:max-w-[73.75rem]"
             >
-              <button onClick={emptyCategoryFilter}>Clear</button>
-            </span>
+              <div className="
+                CATEGORY-FILTER-BUTTONS-WRAPPER
+                flex flex-row flex-wrap items-center gap-4
+              ">
+                {filteredCategoryList.map((category, index) => (
+                  category && 
+                  <CategoryFilterButton
+                    key={`category-filter-button-` + index}
+                    categoryName={category[0]}
+                    categoryValue={category[1]} 
+                    removeCategoryFilter={removeCategoryFilter}
+                  />
+                ))}
+              </div>
+              <span className="
+                self-center
+                font-semibold 
+                transition-all duration-150 ease-in"
+              >
+                <button 
+                  className="hover:underline hover:text-desaturatedDarkCyan"
+                  onClick={emptyCategoryFilter}>Clear</button>
+              </span>
+            </div>
           </div>
         )}
       </header>
