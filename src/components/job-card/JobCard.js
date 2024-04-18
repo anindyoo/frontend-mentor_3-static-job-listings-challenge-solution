@@ -7,7 +7,9 @@ export default function JobCard(props) {
   const filterTabletStlye = `
     rounded-sm bg-lightGrayishCyanFilterTablets
     px-2 pt-[0.625rem] pb-[0.375rem]
-    font-bold text-[0.984rem]/[1em] text-desaturatedDarkCyan`;
+    font-bold text-[0.984rem]/[1em] text-desaturatedDarkCyan
+    transition-all duration-150 ease-in
+    hover:bg-desaturatedDarkCyan hover:text-white`;
 
   const replaceWhitespace = (str) => str.replace(/\s+/g, '-').toLowerCase();
   const keyTemplate = replaceWhitespace(data.company) + '-' + replaceWhitespace(data.position) + '-';
