@@ -7,13 +7,15 @@ import CategoryFilterButton from "./components/category-filter-button/CategoryFi
 export const FilterContext = createContext();
 
 function App() {
-  const [jobDataState, setJobDataState] = useState(JobData);
-  const [filterState, setFilterState] = useState({
+  const initialCategoryFilter = {
     role: '',
     level: '',
     languages: [],
     tools: [],
-  });
+  };
+
+  const [jobDataState, setJobDataState] = useState(JobData);
+  const [filterState, setFilterState] = useState(initialCategoryFilter);
 
   const addCategoryFilter = (name, value) => {
     if (name === 'languages' || name === 'tools') {
@@ -53,6 +55,8 @@ function App() {
     }
   );
 
+  const emptyCategoryFilter = () => setFilterState(initialCategoryFilter);
+
   useEffect(() => {
      setJobDataState(JobData.filter((job) => {        
       return Object.entries(filterState)
@@ -89,7 +93,7 @@ function App() {
             px-10 
             mt-[7.5rem] 
             z-10 absolute
-            xl:min-w-[69.375rem] xl:max-w-[69.375rem]"
+            xl:max-w-[69.375rem]"
           >{filteredCategoryList.map((category, index) => (
             category && <CategoryFilterButton
               key={`category-filter-button-` + index}
@@ -97,7 +101,17 @@ function App() {
               categoryValue={category[1]} 
               removeCategoryFilter={removeCategoryFilter}
             />
-          ))}</div>
+          ))}
+            <span className="
+              flex grow justify-end
+              align-middle
+              font-semibold 
+              transition-all duration-150 ease-in
+              hover:underline hover:text-desaturatedDarkCyan"
+            >
+              <button onClick={emptyCategoryFilter}>Clear</button>
+            </span>
+          </div>
         )}
       </header>
       <main className="
