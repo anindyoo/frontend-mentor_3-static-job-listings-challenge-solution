@@ -69,7 +69,7 @@ export default function JobCard(props) {
             font-bold text-[1.375rem]/[1em] text-veryDarkGrayishCyan
             mb-2
             max-lg:text-[0.938rem]
-            transition-all duration-150 ease-in
+            transition-all duration-100 ease-in
             hover:cursor-pointer hover:text-desaturatedDarkCyan"
         ><h4>{data.position}</h4></a>
         <div className="
