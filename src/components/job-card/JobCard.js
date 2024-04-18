@@ -31,7 +31,7 @@ export default function JobCard(props) {
         border-l-[0.313rem] rounded-md
         pl-[2.188rem] pr-10 py-8
         drop-shadow-lg-cyan bg-white
-        xl:min-w-[69.375rem] xl:max-w-[69.375rem] 
+        xl:max-w-[69.375rem] 
         ${
           data.featured ? `border-l-desaturatedDarkCyan` : `border-l-white`
         }`}
@@ -63,11 +63,15 @@ export default function JobCard(props) {
             )}
           </span>
         </div>
-        <h4 className="
-          font-bold text-[1.375rem]/[1em] text-veryDarkGrayishCyan
-          mb-2
-          max-lg:text-[0.938rem]"
-        >{data.position}</h4>
+        <a 
+          href="#"
+          className="
+            font-bold text-[1.375rem]/[1em] text-veryDarkGrayishCyan
+            mb-2
+            max-lg:text-[0.938rem]
+            transition-all duration-150 ease-in
+            hover:cursor-pointer hover:text-desaturatedDarkCyan"
+        ><h4>{data.position}</h4></a>
         <div className="
           JOB-CARD-DESC-BOTTOM 
           flex flex-row place-items-center gap-4 
