@@ -136,7 +136,8 @@ function App() {
       </header>
       <main className={`
         flex flex-col items-center gap-6
-        px-12 pb-[6.063rem]
+        px-12 pb-[9.375rem]
+        sm:pb-[6.063rem]
         max-sm:gap-10 max-sm:px-6
         ${isCategoryFilterListFilled ? 'pt-10' : 'pt-[14.438rem]'}`}
       >
