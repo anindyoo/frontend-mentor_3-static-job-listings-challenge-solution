@@ -27,27 +27,41 @@ export default function JobCard(props) {
       className={`
         JOB-CARD
         flex flex-row
-        w-full h-auto max-h-[9.5rem]
+        w-full h-auto
         border-l-[0.313rem] rounded-md
         pl-[2.188rem] pr-10 py-8
         drop-shadow-lg-cyan bg-white
-        xl:max-w-[69.375rem] 
+        xl:max-w-[69.375rem]
+        lg:max-h-[9.5rem]
+        max-sm:flex-col max-sm:pt-0 max-sm:pl-[1.188rem] max-sm:pr-6 max-sm:pb-6
+         
         ${
           data.featured ? `border-l-desaturatedDarkCyan` : `border-l-white`
         }`}
     >
-      <img src={require(`./../../assets/images/${data.logo}`)} alt="" />
+      <img 
+        src={require(`./../../assets/images/${data.logo}`)} 
+        alt={data.company + `'s company logo`} 
+        className="
+          h-fit                    
+          max-sm:max-w-12 max-sm:z-10 max-sm:relative max-sm:top-[-1.5rem]"  
+      />
       <div className="
         JOB-CARD-DESC-WRAPPER 
         flex flex-col
-        ml-6"
+        sm:ml-6"
       >
         <div className="JOB-CARD-DESC-UPPER flex flex-row mb-2">
-          <h6 className="font-bold text-lg text-desaturatedDarkCyan md:truncate">{data.company}</h6>
+          <h6 className="
+            font-bold text-lg text-desaturatedDarkCyan 
+            md:truncate
+            max-sm:text-[0.938rem]"
+          >{data.company}</h6>
           <span className="
             flex flex-row items-center gap-2
             ml-4
-            text-sm text-white font-bold"
+            text-sm text-white font-bold
+            max-sm:flex-wrap"
           >
             {data.new && (
               <p className="
@@ -64,7 +78,7 @@ export default function JobCard(props) {
           </span>
         </div>
         <a 
-          href="#"
+          href="/"
           className="
             font-bold text-[1.375rem]/[1em] text-veryDarkGrayishCyan
             mb-2
@@ -76,7 +90,8 @@ export default function JobCard(props) {
           JOB-CARD-DESC-BOTTOM 
           flex flex-row place-items-center gap-4 
           font-md text-lg
-          max-lg:text-sm"
+          max-lg:text-base max-lg:gap-1.5 
+          max-sm:mb-[1.188rem]"
         >
           <h6>{data.postedAt}</h6>
           <h6>•</h6>
@@ -87,7 +102,9 @@ export default function JobCard(props) {
       </div>        
       <div className="
         flex flex-row flex-wrap grow items-center gap-4
-        align-middle justify-end"
+        align-middle 
+        sm:justify-end
+        max-sm:pt-4 max-sm:border-t-[0.063rem]"
       >
         <button
           key={keyTemplate + data.role} 

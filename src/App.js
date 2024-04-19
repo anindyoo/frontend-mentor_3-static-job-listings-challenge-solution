@@ -57,6 +57,8 @@ function App() {
 
   const emptyCategoryFilter = () => setFilterState(initialCategoryFilter);
 
+  const isCategoryFilterListFilled = filteredCategoryList.some((cat) => cat);
+
   useEffect(() => {
      setJobDataState(JobData.filter((job) => {        
       return Object.entries(filterState)
@@ -80,19 +82,21 @@ function App() {
       text-darkGrayishCyan">
       <header className="
         flex flex-col items-center
-        h-[9.75rem]
-        px-12
-        bg-[url('./assets/images/bg-header-desktop.svg')] bg-desaturatedDarkCyan"
+        px-6
+        sm:px-12"
       >
-        {filteredCategoryList.some((cat) => cat) && (
+        <div className="
+          HEADER-BACKGROUND
+          h-[9.75rem] w-screen absolute
+          bg-[url('./assets/images/bg-header-desktop.svg')] bg-desaturatedDarkCyan"
+        ></div>
+        {isCategoryFilterListFilled && (
           <div className="
             CATEGORY-FILTER-BAR-WRAPPER
             flex justify-center
             w-full rounded-[0.25rem]
-            px-12
-            mt-[7.5rem]
-            z-10 absolute 
-          ">
+            mt-[7.5rem]"
+          >
             <div className="
               CATEGORY-FILTER-BAR
               animated animatedFadeIn fadeInUp    
@@ -100,7 +104,7 @@ function App() {
               w-full rounded-[0.25rem]
               drop-shadow-lg-cyan bg-white 
               px-10 py-5
-              xl:max-w-[69.375rem] lg:max-w-[73.75rem]"
+              xl:max-w-[69.375rem]"
             >
               <div className="
                 CATEGORY-FILTER-BUTTONS-WRAPPER
@@ -129,9 +133,11 @@ function App() {
           </div>
         )}
       </header>
-      <main className="
+      <main className={`
         flex flex-col items-center gap-6
-        px-12 pt-[4.75rem] pb-[6.063rem]"
+        px-12 pb-[6.063rem]
+        max-sm:gap-10 max-sm:px-6
+        ${isCategoryFilterListFilled ? 'pt-10' : 'pt-[14.438rem]'}`}
       >
         {jobDataState.map((data) => 
           <JobCard 
