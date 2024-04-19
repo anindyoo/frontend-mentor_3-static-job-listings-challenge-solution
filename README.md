@@ -1,4 +1,4 @@
-# Frontend Mentor - Job listings with filtering solution
+# Frontend Mentor - Job listings with filtering solution ([🔗 Live Solution](https://anindyoo.github.io/frontend-mentor_3-static-job-listings-challenge-solution/))
 
 This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
@@ -41,8 +41,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github](https://github.com/anindyoo/frontend-mentor_3-static-job-listings-challenge-solution-)
-- Live Site URL: [Github Pages](https://your-live-site-url.com)
+- Solution URL: [Github](https://github.com/anindyoo/frontend-mentor_3-static-job-listings-challenge-solution)
+- Live Site URL: [Github Pages](https://anindyoo.github.io/frontend-mentor_3-static-job-listings-challenge-solution/https://anindyoo.github.io/frontend-mentor_3-static-job-listings-challenge-solution/)
 
 ## My process
 
