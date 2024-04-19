@@ -87,8 +87,9 @@ function App() {
       >
         <div className="
           HEADER-BACKGROUND
-          h-[9.75rem] w-screen absolute
-          bg-[url('./assets/images/bg-header-desktop.svg')] bg-desaturatedDarkCyan"
+          h-[9.75rem] w-screen absolute          
+          bg-[url('./assets/images/bg-header-mobile.svg')]
+          xs:bg-[url('./assets/images/bg-header-desktop.svg')] bg-desaturatedDarkCyan"
         ></div>
         {isCategoryFilterListFilled && (
           <div className="
